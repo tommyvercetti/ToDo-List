@@ -59,6 +59,35 @@
 }
 
 - (void) save {
+    
+    NSString * eventInfo = self.textField.text;
+    
+    NSDateFormatter * formater = [[NSDateFormatter alloc] init];
+    formater.dateFormat = @"HH:mm dd.MMMM.yyyy";
+    
+    NSString * eventDate = [formater stringFromDate:self.eventDate];
+    
+    NSDictionary * dict = [[NSDictionary alloc]initWithObjectsAndKeys:
+                           eventInfo, @"eventInfo",
+                           eventDate, @"eventDate", nil];
+    
+    
+    UILocalNotification * notofication = [[UILocalNotification alloc] init];
+    notofication.userInfo = dict;
+    notofication.timeZone = [NSTimeZone defaultTimeZone];
+    notofication.fireDate = self.eventDate;
+    notofication.alertBody = eventInfo;
+    notofication.applicationIconBadgeNumber = 1;
+    notofication.soundName = UILocalNotificationDefaultSoundName;
+    
+    [[UIApplication sharedApplication] scheduleLocalNotification:notofication];
+    
+    
+    
+    
+    
+    
+    
     NSLog(@"save");
 }
 
