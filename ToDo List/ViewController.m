@@ -23,6 +23,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    
+    self.buttonSave.userInteractionEnabled = NO;
     self.datePicker.minimumDate = [NSDate date];
     
     [self.datePicker addTarget:self action:@selector(datePickerValueChanged) forControlEvents:UIControlEventValueChanged];
@@ -45,7 +47,15 @@
 
 - (void) handleEndEditing {
     
-    [self.view endEditing:YES];
+    if ([self.textField.text length] !=0) {
+        [self.view endEditing:YES];
+        self.buttonSave.userInteractionEnabled = YES;
+    }
+    
+    else {
+        [self showAlertWithMessage:@"Please, fill the text field for saving event"];
+    }
+    
     
     //[self.textField resignFirstResponder];
 }
@@ -60,6 +70,30 @@
 
 - (void) save {
     
+    if (self.eventDate) {
+        
+        if ([self.eventDate compare:[NSDate date]] == NSOrderedSame) {
+            [self showAlertWithMessage:@"The date of fututre event can't be in the present"];
+            }
+        else if ([self.eventDate compare:[NSDate date]] == NSOrderedAscending){
+            [self showAlertWithMessage:@"The date of fututre event can't be in the past"];
+        }
+        
+        else {
+            [self setNotification];
+        }
+        
+        
+        [self setNotification];
+    }
+    
+    else {
+        [self showAlertWithMessage:@"Please, chose the future date for saving event"];
+    }
+    
+}
+
+- (void) setNotification {
     NSString * eventInfo = self.textField.text;
     
     NSDateFormatter * formater = [[NSDateFormatter alloc] init];
@@ -81,23 +115,51 @@
     notofication.soundName = UILocalNotificationDefaultSoundName;
     
     [[UIApplication sharedApplication] scheduleLocalNotification:notofication];
-    
-    
-    
-    
-    
-    
-    
     NSLog(@"save");
+
+    
 }
+
+
+
+
+
+
+
 
 - (BOOL)textFieldShouldReturn:(UITextField *) textField  {
     
     if ([textField isEqual:self.textField]) {
+        
+        if ([self.textField.text length] !=0) {
+            
         [self.textField resignFirstResponder];
+        self.buttonSave.userInteractionEnabled = YES;
+        return YES;
+        }
+        
+        else {
+            [self showAlertWithMessage:@"Please, fill the text field for saving event"];
+        }
+        
     }
     
-    return YES;
+    
+    return NO;
+}
+
+- (void) showAlertWithMessage : (NSString *) message {
+    
+    
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Внимание!" message: message preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *alertController){}];
+    [alertController addAction:ok];
+    [self presentViewController:alertController animated:YES completion:nil];
+    
+    
+    
+    
+    
 }
 
 
