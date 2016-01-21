@@ -88,7 +88,18 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;{
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    UILocalNotification * notification = [self.arrayEvents objectAtIndex:indexPath.row];
+    
+    NSDictionary * dict = notification.userInfo;
+    
     ViewController * viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"viewController"];
+    
+    viewController.eventInfo = [dict objectForKey:@"eventInfo"];
+    viewController.eventDate = notification.fireDate;
+    viewController.isDetail = YES;
+    
+    
     [self.navigationController pushViewController:viewController animated:YES];
     
     

@@ -24,6 +24,16 @@
     [super viewDidLoad];
     
     
+    if (self.isDetail) {
+        
+        self.textField.text = self.eventInfo;
+        self.datePicker.date = self.eventDate;
+               
+        
+    }
+    
+    else{
+        
     self.buttonSave.userInteractionEnabled = NO;
     self.datePicker.minimumDate = [NSDate date];
     
@@ -35,7 +45,7 @@
                                                                                  action:@selector(handleEndEditing)];
     
     [self.view addGestureRecognizer:handleTap];
-    
+    }
     
     
 }
