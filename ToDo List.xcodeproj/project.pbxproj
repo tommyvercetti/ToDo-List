@@ -15,6 +15,7 @@
 		840C16AF1C4C314C009F9286 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 840C16AD1C4C314C009F9286 /* LaunchScreen.storyboard */; };
 		840C16BA1C4C314C009F9286 /* ToDo_ListTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 840C16B91C4C314C009F9286 /* ToDo_ListTests.m */; };
 		840C16C51C4C314C009F9286 /* ToDo_ListUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 840C16C41C4C314C009F9286 /* ToDo_ListUITests.m */; };
+		E62F9ABE1C51045D00E08010 /* MainTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E62F9ABD1C51045D00E08010 /* MainTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,8 @@
 		840C16C01C4C314C009F9286 /* ToDo ListUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ToDo ListUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		840C16C41C4C314C009F9286 /* ToDo_ListUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ToDo_ListUITests.m; sourceTree = "<group>"; };
 		840C16C61C4C314C009F9286 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E62F9ABC1C51045D00E08010 /* MainTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTableViewController.h; sourceTree = "<group>"; };
+		E62F9ABD1C51045D00E08010 /* MainTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +109,8 @@
 				840C16A51C4C314C009F9286 /* ViewController.h */,
 				840C16A61C4C314C009F9286 /* ViewController.m */,
 				840C16A81C4C314C009F9286 /* Main.storyboard */,
+				E62F9ABC1C51045D00E08010 /* MainTableViewController.h */,
+				E62F9ABD1C51045D00E08010 /* MainTableViewController.m */,
 				840C16AB1C4C314C009F9286 /* Assets.xcassets */,
 				840C16AD1C4C314C009F9286 /* LaunchScreen.storyboard */,
 				840C16B01C4C314C009F9286 /* Info.plist */,
@@ -271,6 +276,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E62F9ABE1C51045D00E08010 /* MainTableViewController.m in Sources */,
 				840C16A71C4C314C009F9286 /* ViewController.m in Sources */,
 				840C16A41C4C314C009F9286 /* AppDelegate.m in Sources */,
 				840C16A11C4C314C009F9286 /* main.m in Sources */,
