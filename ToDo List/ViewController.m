@@ -24,6 +24,10 @@
     [super viewDidLoad];
     
     
+    
+    
+    
+    
     if (self.isDetail) {
         
         self.textField.text = self.eventInfo;
@@ -140,6 +144,10 @@
     
     [[UIApplication sharedApplication] scheduleLocalNotification:notofication];
     NSLog(@"save");
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"NewEvent" object:nil];
+    
+    
     
     [self.navigationController popViewControllerAnimated:YES];
 
