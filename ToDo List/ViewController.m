@@ -27,7 +27,11 @@
     if (self.isDetail) {
         
         self.textField.text = self.eventInfo;
-        self.datePicker.date = self.eventDate;
+        self.textField.userInteractionEnabled = NO;
+        self.datePicker.userInteractionEnabled = NO;
+        self.buttonSave.alpha = 0;
+        
+        [self performSelector:@selector(setDatePickerValueWithAnimation) withObject:nil afterDelay:0.5];
                
         
     }
@@ -49,6 +53,16 @@
     
     
 }
+
+- (void) setDatePickerValueWithAnimation {
+    
+    [self.datePicker setDate:self.eventDate animated:YES];
+    
+}
+
+
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -126,6 +140,8 @@
     
     [[UIApplication sharedApplication] scheduleLocalNotification:notofication];
     NSLog(@"save");
+    
+    [self.navigationController popViewControllerAnimated:YES];
 
     
 }
