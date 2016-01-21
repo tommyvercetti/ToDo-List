@@ -7,6 +7,7 @@
 //
 
 #import "MainTableViewController.h"
+#import "ViewController.h"
 
 @interface MainTableViewController ()
 
@@ -83,6 +84,19 @@
     
     return cell;
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;{
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    ViewController * viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"viewController"];
+    [self.navigationController pushViewController:viewController animated:YES];
+    
+    
+}
+
+
+
+
 
 
 /*
